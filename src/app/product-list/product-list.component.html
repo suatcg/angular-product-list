@@ -1,0 +1,67 @@
+<h2>Products</h2>
+<!-- 
+<div *ngFor="let product of products">
+	<h3>
+		<a
+			[title]="product.name + ' details'"
+			[routerLink]="['/products', product.id]"
+		>
+			{{ product.name }}
+		</a>
+	</h3>
+
+	<p *ngIf="product.description">Description : {{ product.description }}</p>
+
+	<button type="button" (click)="share()">Share</button>
+
+	<app-product-alerts [product]="product" (notify)="onNotify()">
+	</app-product-alerts>
+</div> -->
+
+<nz-table #basicTable [nzData]="listOfProducts" nzSize="middle">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Brand</th>
+			<th nzWidth="200px">Category</th>
+			<th nzWidth="200px">Title</th>
+			<th nzWidth="200px">Discount</th>
+			<th nzWidth="200px">Image</th>
+			<th nzWidth="200px">Price</th>
+			<th nzWidth="200px">Rating</th>
+			<th nzWidth="200px">Stock</th>
+			<th nzWidth="200px">Satış</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let product of basicTable.data">
+			<td nzAlign="left">{{ product.id }}</td>
+			<td nzAlign="center">{{ product.brand }}</td>
+			<td nzAlign="center">{{ product.category }}</td>
+			<td nzAlign="center">{{ product.title }}</td>
+			<td nzAlign="center">{{ product.discountPercentage }}</td>
+			<td nzAlign="center">
+				<img class="product-image" src="{{ product.images[0] }}" />
+			</td>
+			<td nzAlign="center">{{ product.price }}</td>
+			<td nzAlign="center">{{ product.rating }}</td>
+			<td nzAlign="center">{{ product.stock }}</td>
+			<td nzAlign="center">
+				<div *ngIf="eachProductArr">
+					<app-product-modal
+						[productId]="product.id"
+						[product]="eachProductArr"
+						[actualProduct]="product"
+						[listOfProducts]="listOfProducts"
+					></app-product-modal>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</nz-table>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->

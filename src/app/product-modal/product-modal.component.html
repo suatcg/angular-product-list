@@ -1,0 +1,30 @@
+<button nz-button nzType="'primary'" (click)="showModal()">
+	<span>Show Modal</span>
+</button>
+<nz-modal
+	nzWidth="520px "
+	[(nzVisible)]="isVisible"
+	nzTitle="The first Modal"
+	(nzOnCancel)="handleCancel()"
+	(nzOnOk)="handleOk()"
+>
+	<ng-container>
+		<!-- <div *ngIf="modalItem">
+			<!-- <div *ngFor="let item of modalItem"> -->
+		<!-- <p>id : {{ modalItem[0] }}</p> -->
+		<!-- <p>name : {{ modalItem[1] }}</p> -->
+		<!-- <p>Product: {{ item.title }}</p>
+				<p>Content three</p> -->
+		<!-- </div> -->
+		<!-- </div> -->
+		<div *ngIf="this.modalItemId">
+			<p>Id : {{ this.modalItemId }}</p>
+		</div>
+
+		<div *ngIf="this.modalItemName">
+			<p>Name : {{ this.modalItemName }}</p>
+		</div>
+
+		<!-- <p>Id : {{ modalItemName }}</p> -->
+	</ng-container>
+</nz-modal>
